@@ -1,4 +1,4 @@
-# GEMINI: Homeomorphism Prior for False Positive and Negative Problem in Medical Image Dense Contrastive Representation Learning
+# Homeomorphism Prior for False Positive and Negative Problem in Medical Image Dense Contrastive Representation Learning
 
 [NOTE!!]**The code will be gradually opened, and be completely opened after this paper is published.**
 
