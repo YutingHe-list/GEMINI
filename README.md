@@ -44,3 +44,6 @@ If you use this code or use our pre-trained weights for your research, please ci
 - [Few-shot semi-supervised segmentation](https://github.com/YutingHe-list/GEMINI/tree/main/GEMINI_FS_Semi)
 - [Self-supervised medical image pre-training]()
 
+## Dataset
+The datasets in our paper are released on the [Hugging Face](https://huggingface.co/datasets/YutingHe-list/GEMINI_Data/tree/main).
+
