@@ -1,6 +1,6 @@
 # Homeomorphism Prior for False Positive and Negative Problem in Medical Image Dense Contrastive Representation Learning
 
-[News!!]**The paper has been accepted by T-PAMI (IF:20.8)**
+[News!!]**The paper has been accepted by [T-PAMI](https://ieeexplore.ieee.org/document/10879555) (IF:20.8)**
 
 [NOTE!!]**This code is a journal extended version of the conference work of [GVSL](https://github.com/YutingHe-list/GVSL).**
 
