@@ -1,4 +1,4 @@
-[![header](https://capsule-render.vercel.app/api?type=soft&height=100&color=gradient&text=Homeomorphism%20Prior&fontAlign=50&descAlign=50&section=header&textBg=false&strokeWidth=0&rotate=0&fontSize=45&desc=in%20Medical%20Image%20Dense%20Contrastive%20Representation%20Learning&descSize=25&descAlignY=78&fontAlignY=38&reversal=false)](https://arxiv.org/abs/2502.05282)
+<p align="center">[![header](https://capsule-render.vercel.app/api?type=soft&height=100&color=gradient&text=Homeomorphism%20Prior&fontAlign=50&descAlign=50&section=header&textBg=false&strokeWidth=0&rotate=0&fontSize=45&desc=in%20Medical%20Image%20Dense%20Contrastive%20Representation%20Learning&descSize=25&descAlignY=78&fontAlignY=38&reversal=false)](https://arxiv.org/abs/2502.05282)</p>
 --- 
 [![Paper](https://img.shields.io/badge/TPAMI-Journal-purple)](https://ieeexplore.ieee.org/document/10879555)
 [![Paper](https://img.shields.io/badge/CVPR-Conference-purple)](https://openaccess.thecvf.com/content/CVPR2023/html/He_Geometric_Visual_Similarity_Learning_in_3D_Medical_Image_Self-Supervised_Pre-Training_CVPR_2023_paper.html)
