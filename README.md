@@ -1,7 +1,7 @@
 # Homeomorphism Prior for False Positive and Negative Problem in Medical Image Dense Contrastive Representation Learning
 
 
-[![header](https://capsule-render.vercel.app/api?type=soft&height=150&color=gradient&text=Homeomorphism%20Prior%20in%20Medical%20Image%20Dense%20%20Contrastive%20Representation%20Learning&fontAlign=72&descAlign=48&section=footer&textBg=false&strokeWidth=0&rotate=0&fontSize=40)](https://arxiv.org/abs/2502.05282)
+[![header](https://capsule-render.vercel.app/api?type=soft&height=130&color=gradient&text=Homeomorphism%20Prior%20for%20False%20Positive%20and%20Negative%20Problem&fontAlign=50&descAlign=50&section=footer&textBg=false&strokeWidth=0&rotate=0&fontSize=28&desc=in%20Medical%20Image%20Dense%20Contrastive%20Representation%20Learning&descSize=28&descAlignY=65&fontAlignY=35)](https://arxiv.org/abs/2502.05282)
 --- 
 
 
