@@ -1,4 +1,4 @@
-[![header](https://capsule-render.vercel.app/api?type=soft&height=130&color=gradient&text=Homeomorphism%20Prior&fontAlign=50&descAlign=50&section=header&textBg=false&strokeWidth=0&rotate=0&fontSize=45&desc=in%20Medical%20Image%20Dense%20Contrastive%20Representation%20Learning&descSize=25&descAlignY=65&fontAlignY=35&reversal=true)](https://arxiv.org/abs/2502.05282)
+[![header](https://capsule-render.vercel.app/api?type=soft&height=130&color=gradient&text=Homeomorphism%20Prior&fontAlign=50&descAlign=50&section=header&textBg=false&strokeWidth=0&rotate=0&fontSize=45&desc=in%20Medical%20Image%20Dense%20Contrastive%20Representation%20Learning&descSize=25&descAlignY=70&fontAlignY=40&reversal=false)](https://arxiv.org/abs/2502.05282)
 --- 
 [![Paper](https://img.shields.io/badge/GEMINI_paper-Arxiv-purple)](https://arxiv.org/abs/2502.05282)
 [![Dataset](https://img.shields.io/badge/Dataset-processing-green)](https://huggingface.co/datasets/YutingHe-list/GEMINI_Data/tree/main)
