@@ -31,5 +31,6 @@ If you use this code or use our pre-trained weights for your research, please ci
 ```
 
 ## Official implementation
-- [PyTorch/](https://github.com/YutingHe-list/GVSL/tree/main/GEMINI/PyTorch)
+- [Few-shot semi-supervised segmentation](https://github.com/YutingHe-list/GEMINI/tree/main/GEMINI_FS_Semi)
+- [Self-supervised medical image pre-training]()
 
