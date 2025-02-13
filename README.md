@@ -16,7 +16,7 @@ Dense contrastive representation learning (DCRL), with its powerful dense poster
 
 ## Citation
 If you use this code or use our pre-trained weights for your research, please cite our papers:
-```
+```bibtex
 @ARTICLE{10879555,
   author={He, Yuting and Wang, Boyu and Ge, Rongjun and Chen, Yang and Yang, Guanyu and Li, Shuo},
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
@@ -26,7 +26,6 @@ If you use this code or use our pre-trained weights for your research, please ci
   number={},
   pages={1-18},
   doi={10.1109/TPAMI.2025.3540644}}
-
 @InProceedings{He_2023_CVPR,
     author    = {He, Yuting and Yang, Guanyu and Ge, Rongjun and Chen, Yang and Coatrieux, Jean-Louis and Wang, Boyu and Li, Shuo},
     title     = {Geometric Visual Similarity Learning in 3D Medical Image Self-Supervised Pre-Training},
