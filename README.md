@@ -1,5 +1,7 @@
 # Homeomorphism Prior for False Positive and Negative Problem in Medical Image Dense Contrastive Representation Learning
 
+[News!!]**The paper has been accepted by T-PAMI (IF:20.8)**
+
 [NOTE!!]**The code will be gradually opened, and be completely opened after this paper is published.**
 
 [NOTE!!]**This code is a journal extended version of the conference work of [GVSL](https://github.com/YutingHe-list/GVSL).**
@@ -13,12 +15,21 @@ This repository provides the official PyTorch implementation of GEMINI in the fo
 
 **Homeomorphism Prior for False Positive and Negative Problem in Medical Image Dense Contrastive Representation Learning**<br/> 
 [Yuting He](https://yutinghe-list.github.io/), [Boyu Wang](https://sites.google.com/site/borriewang/), [Rongjun Ge](https://scholar.google.com/citations?user=v8K8HIkAAAAJ&hl=en), [Yang Chen](https://scholar.google.com/citations?user=LxjxwpgAAAAJ&hl=en), [Guanyu Yang*](https://cse.seu.edu.cn/2019/0103/c23024a257233/page.htm), [Shuo Li](http://www.digitalimaginggroup.ca/members/shuo.php)<br/>
-Southeast University <br/>
+IEEE Transactions on Pattern Analysis and Machine Intelligence <br/>
 
 ## Citation
 If you use this code or use our pre-trained weights for your research, please cite our papers:
 ```
-wait
+@ARTICLE{10879555,
+  author={He, Yuting and Wang, Boyu and Ge, Rongjun and Chen, Yang and Yang, Guanyu and Li, Shuo},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={Homeomorphism Prior for False Positive and Negative Problem in Medical Image Dense Contrastive Representation Learning}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-18},
+  doi={10.1109/TPAMI.2025.3540644}}
+
 ```
 
 ## Official implementation
