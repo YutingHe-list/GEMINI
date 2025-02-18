@@ -112,7 +112,6 @@ class Trainer(object):
         # smooth loss for continuity
         loss_smo = self.L_smo(flow_AB)
         loss_smo += self.L_smo(flow_BA)
-        self.L_smo_log.update(loss_smo.data, imgA.size(0))
 
         # similarity loss for correspondence
         # GVS
@@ -120,22 +119,28 @@ class Trainer(object):
         warp_BA = self.stn(imgB, flow_BA)
         loss_gvs = self.L_sim(warp_AB, imgB, mask_AB)
         loss_gvs += self.L_sim(warp_BA, imgA, mask_BA)
-        self.L_gvs_log.update(loss_gvs.data, imgA.size(0))
 
         # GSS
         warp_fAB = self.stn(fA, flow_AB.detach())
+        loss_gss = 0.1 * self.L_cos(warp_fAB, fB, mask_AB)
+        warp_fAB = self.stn(fA.detach(), flow_AB)
+        loss_gss += self.L_cos(warp_fAB, fB.detach(), mask_AB)
+
         warp_fBA = self.stn(fB, flow_BA.detach())
+        loss_gss += 0.1 * self.L_cos(warp_fBA, fA, mask_BA)
+        warp_fBA = self.stn(fB.detach(), flow_BA)
+        loss_gss += self.L_cos(warp_fBA, fA.detach(), mask_BA)
 
-        loss_gss = self.L_cos(warp_fAB, fB, mask_AB)
-        loss_gss += self.L_cos(warp_fBA, fA, mask_AB)
-        self.L_gss_log.update(loss_gss.data, imgA.size(0))
+        loss_total = 0.4*loss_smo + 0.8*loss_gss + loss_gvs
 
-        loss_total = 0.8 * loss_smo + loss_gss + 0.8 * loss_gvs
-
-        loss_total.backward()
-        self.opt.step()
-        self.Network.zero_grad()
-        self.opt.zero_grad()
+        if not (loss_total == torch.inf or loss_total == -torch.inf or loss_total == torch.nan):
+            self.L_smo_log.update(loss_smo.data, imgA.size(0))
+            self.L_gvs_log.update(loss_gvs.data, imgA.size(0))
+            self.L_gss_log.update(loss_gss.data, imgA.size(0))
+            loss_total.backward()
+            self.opt.step()
+            self.Network.zero_grad()
+            self.opt.zero_grad()
 
         # Train seg
         imgA = labed_img
@@ -144,14 +149,15 @@ class Trainer(object):
 
         loss_ce = self.L_ce(self.softmax(res_A), labA)
         loss_dice = self.L_dice(self.softmax(res_A), labA)
-        self.L_ce_log.update(loss_ce.data, imgA.size(0))
-        self.L_dice_log.update(loss_dice.data, imgA.size(0))
         loss_total = 100 * (loss_ce + loss_dice)
 
-        loss_total.backward()
-        self.opt.step()
-        self.Network.zero_grad()
-        self.opt.zero_grad()
+        if not (loss_total == torch.inf or loss_total == -torch.inf or loss_total == torch.nan):
+            self.L_ce_log.update(loss_ce.data, imgA.size(0))
+            self.L_dice_log.update(loss_dice.data, imgA.size(0))
+            loss_total.backward()
+            self.opt.step()
+            self.Network.zero_grad()
+            self.opt.zero_grad()
 
     def train_epoch(self, epoch):
         self.Network.train()
