@@ -12,7 +12,7 @@ from utils.augmentation import SpatialTransform
 from utils.dataloader_brain_train import DatasetFromFolder3D as DatasetFromFolder3D_train
 from utils.dataloader_brain_test_reg import DatasetFromFolder3D as DatasetFromFolder3D_test_reg
 from utils.dataloader_brain_test_seg import DatasetFromFolder3D as DatasetFromFolder3D_test_seg
-from utils.losses import gradient_loss, dice_loss, crossentropy, cos_loss, ncc_loss_mask
+from utils.losses3d import gradient_loss, dice_loss, crossentropy, cos_loss, ncc_loss_mask
 from utils.utils import AverageMeter, to_categorical, dice
 
 class Trainer(object):
@@ -112,7 +112,6 @@ class Trainer(object):
         # smooth loss for continuity
         loss_smo = self.L_smo(flow_AB)
         loss_smo += self.L_smo(flow_BA)
-        self.L_smo_log.update(loss_smo.data, imgA.size(0))
 
         # similarity loss for correspondence
         # GVS
@@ -120,7 +119,6 @@ class Trainer(object):
         warp_BA = self.stn(imgB, flow_BA)
         loss_gvs = self.L_sim(warp_AB, imgB, mask_AB)
         loss_gvs += self.L_sim(warp_BA, imgA, mask_BA)
-        self.L_gvs_log.update(loss_gvs.data, imgA.size(0))
 
         # GSS
         warp_fAB = self.stn(fA, flow_AB.detach())
@@ -136,6 +134,9 @@ class Trainer(object):
         loss_total = 0.4*loss_smo + 0.8*loss_gss + loss_gvs
 
         if not (loss_total == torch.inf or loss_total == -torch.inf or loss_total == torch.nan):
+            self.L_smo_log.update(loss_smo.data, imgA.size(0))
+            self.L_gvs_log.update(loss_gvs.data, imgA.size(0))
+            self.L_gss_log.update(loss_gss.data, imgA.size(0))
             loss_total.backward()
             self.opt.step()
             self.Network.zero_grad()
@@ -148,11 +149,11 @@ class Trainer(object):
 
         loss_ce = self.L_ce(self.softmax(res_A), labA)
         loss_dice = self.L_dice(self.softmax(res_A), labA)
-        self.L_ce_log.update(loss_ce.data, imgA.size(0))
-        self.L_dice_log.update(loss_dice.data, imgA.size(0))
         loss_total = 100 * (loss_ce + loss_dice)
 
         if not (loss_total == torch.inf or loss_total == -torch.inf or loss_total == torch.nan):
+            self.L_ce_log.update(loss_ce.data, imgA.size(0))
+            self.L_dice_log.update(loss_dice.data, imgA.size(0))
             loss_total.backward()
             self.opt.step()
             self.Network.zero_grad()

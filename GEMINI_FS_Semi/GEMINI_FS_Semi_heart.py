@@ -13,7 +13,7 @@ from utils.augmentation import SpatialTransform
 from utils.dataloader_heart_train import DatasetFromFolder3D as DatasetFromFolder3D_train
 from utils.dataloader_heart_test_reg import DatasetFromFolder3D as DatasetFromFolder3D_test_reg
 from utils.dataloader_heart_test_seg import DatasetFromFolder3D as DatasetFromFolder3D_test_seg
-from utils.losses import gradient_loss, dice_loss, crossentropy, cos_loss, ncc_loss_mask
+from utils.losses3d import gradient_loss, dice_loss, crossentropy, cos_loss, ncc_loss_mask
 from utils.utils import AverageMeter, to_categorical, dice
 
 class Trainer(object):
