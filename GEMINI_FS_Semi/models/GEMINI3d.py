@@ -7,7 +7,7 @@ from models.backbone_unet3d import UNet_base, UNet_shallow
 class GEMINI(nn.Module):
     def __init__(self, n_channels=1, chan=(32, 64, 128, 256, 512, 256, 128, 64, 32), classes=1):
         super(GEMINI, self).__init__()
-        self.backbone = UNet_base(n_channels=n_channels, chs=chan)
+        self.unet = UNet_base(n_channels=n_channels, chs=chan)
         sp_conv = UNet_shallow(chan[-1]*2)
         self.deformer = nn.Sequential(sp_conv,
                                      nn.Conv3d(sp_conv.chs[-1], 3, 3, padding=1))
@@ -28,26 +28,26 @@ class GEMINI(nn.Module):
 
     def test_res(self, A):
         with torch.no_grad():
-            fA = self.backbone(A)
+            fA = self.unet(A)
             res_A = self.res_conv(fA)
         return res_A
 
     def test_reg(self, A, B):
         with torch.no_grad():
-            fA = self.backbone(A)
-            fB = self.backbone(B)
+            fA = self.unet(A)
+            fB = self.unet(B)
 
             flow_AB = self.deformer(torch.cat([fA, fB], dim=1))
         return flow_AB
 
     def forward(self, A, B, res=False):
         if res:
-            fA = self.backbone(A)
+            fA = self.unet(A)
             res_A = self.res_conv(fA)
             return res_A
         else:
-            fA = self.backbone(A)
-            fB = self.backbone(B)
+            fA = self.unet(A)
+            fB = self.unet(B)
             flow_AB = self.deformer(torch.cat([fA, fB], dim=1))
             flow_BA = self.deformer(torch.cat([fB, fA], dim=1))
 
